@@ -4,7 +4,7 @@ Flash **CheapyOS V4** sur ta carte ESP32 CYD en un clic depuis ton navigateur.
 
 ## 🚀 Utilisation
 
-1. Ouvre **[le flasher](https://KornoxOff.github.io/CheapyOS-Flasher/)**
+1. Ouvre **[le flasher](https://KornoxOff.github.io/CheapyOS-WebFlasher/)**
 2. Clique sur **INSTALL**
 3. Sélectionne le port COM de ta carte
 4. Attends 1-2 minutes
