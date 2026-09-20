@@ -1,0 +1,14 @@
+{
+  "name": "CheapyOS V4",
+  "version": "4.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "improv": false,
+      "parts": [
+        { "path": "firmware/cheapyos-v4.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
