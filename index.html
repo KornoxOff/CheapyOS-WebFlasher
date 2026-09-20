@@ -15,32 +15,20 @@
     background: #0a0a1a;
   }
 
-  /* ============================================================
-     FOND ANIMÉ : dégradé qui défile
-     ============================================================ */
   .bg-gradient {
     position: fixed;
     inset: 0;
     background: linear-gradient(135deg,
-      #0a0a1a 0%,
-      #1a0a3a 25%,
-      #0a1a3a 50%,
-      #1a0a2a 75%,
-      #0a0a1a 100%);
+      #0a0a1a 0%, #1a0a3a 25%, #0a1a3a 50%, #1a0a2a 75%, #0a0a1a 100%);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
     z-index: -2;
   }
-
   @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
+    0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
   }
 
-  /* ============================================================
-     PARTICULES FLOTTANTES
-     ============================================================ */
   .particles {
     position: fixed;
     inset: 0;
@@ -48,33 +36,21 @@
     overflow: hidden;
     pointer-events: none;
   }
-
   .particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 4px; height: 4px;
     background: rgba(0, 200, 255, 0.6);
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
     animation: floatUp linear infinite;
   }
-
   @keyframes floatUp {
-    0% {
-      transform: translateY(100vh) scale(0);
-      opacity: 0;
-    }
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
     10% { opacity: 1; }
     90% { opacity: 1; }
-    100% {
-      transform: translateY(-100px) scale(1);
-      opacity: 0;
-    }
+    100% { transform: translateY(-100px) scale(1); opacity: 0; }
   }
 
-  /* ============================================================
-     CONTENEUR PRINCIPAL
-     ============================================================ */
   .container {
     display: flex;
     flex-direction: column;
@@ -86,26 +62,16 @@
     z-index: 1;
   }
 
-  /* ============================================================
-     LOGO ANIMÉ
-     ============================================================ */
-  .logo-wrapper {
-    position: relative;
-    margin-bottom: 30px;
-  }
+  .logo-wrapper { position: relative; margin-bottom: 25px; }
 
   .logo {
-    width: 130px;
-    height: 130px;
+    width: 120px; height: 120px;
     border-radius: 50%;
     background: linear-gradient(135deg, #00a0dc, #0066aa, #00d4ff);
     background-size: 200% 200%;
     animation: logoGlow 3s ease-in-out infinite, logoRotate 8s linear infinite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 72px;
-    font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 66px; font-weight: 900;
     color: white;
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     box-shadow:
@@ -115,63 +81,34 @@
     position: relative;
     z-index: 2;
   }
-
   @keyframes logoGlow {
-    0%, 100% {
-      box-shadow:
-        0 0 40px rgba(0, 160, 220, 0.6),
-        0 0 80px rgba(0, 160, 220, 0.4),
-        inset 0 0 30px rgba(255, 255, 255, 0.2);
-    }
-    50% {
-      box-shadow:
-        0 0 60px rgba(0, 200, 255, 0.9),
-        0 0 120px rgba(0, 200, 255, 0.6),
-        inset 0 0 40px rgba(255, 255, 255, 0.3);
-    }
+    0%, 100% { box-shadow: 0 0 40px rgba(0,160,220,0.6), 0 0 80px rgba(0,160,220,0.4), inset 0 0 30px rgba(255,255,255,0.2); }
+    50% { box-shadow: 0 0 60px rgba(0,200,255,0.9), 0 0 120px rgba(0,200,255,0.6), inset 0 0 40px rgba(255,255,255,0.3); }
   }
-
   @keyframes logoRotate {
     from { background-position: 0% 50%; }
     to { background-position: 200% 50%; }
   }
 
-  /* Anneaux autour du logo */
   .ring {
     position: absolute;
     border: 2px solid rgba(0, 200, 255, 0.3);
     border-radius: 50%;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     animation: ringPulse 2s ease-out infinite;
   }
-
   .ring:nth-child(1) { animation-delay: 0s; }
   .ring:nth-child(2) { animation-delay: 0.5s; }
   .ring:nth-child(3) { animation-delay: 1s; }
   .ring:nth-child(4) { animation-delay: 1.5s; }
-
   @keyframes ringPulse {
-    0% {
-      width: 130px;
-      height: 130px;
-      opacity: 1;
-      border-color: rgba(0, 200, 255, 0.6);
-    }
-    100% {
-      width: 250px;
-      height: 250px;
-      opacity: 0;
-      border-color: rgba(0, 200, 255, 0);
-    }
+    0% { width: 120px; height: 120px; opacity: 1; border-color: rgba(0,200,255,0.6); }
+    100% { width: 240px; height: 240px; opacity: 0; border-color: rgba(0,200,255,0); }
   }
 
-  /* ============================================================
-     TITRE
-     ============================================================ */
   h1 {
-    font-size: 3em;
+    font-size: 2.8em;
     font-weight: 900;
     letter-spacing: 2px;
     margin-bottom: 10px;
@@ -183,45 +120,175 @@
     animation: textShine 3s linear infinite;
     text-align: center;
   }
-
-  @keyframes textShine {
-    to { background-position: 200% center; }
-  }
+  @keyframes textShine { to { background-position: 200% center; } }
 
   .subtitle {
     color: #a0b0d0;
-    font-size: 1.1em;
-    margin-bottom: 40px;
+    font-size: 1em;
+    margin-bottom: 35px;
     text-align: center;
     letter-spacing: 1px;
   }
 
-  .version-badge {
-    display: inline-block;
-    background: rgba(0, 200, 255, 0.15);
-    border: 1px solid rgba(0, 200, 255, 0.4);
-    color: #00d4ff;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8em;
-    margin-left: 8px;
-    font-weight: 600;
-    vertical-align: middle;
+  .version-selector-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 25px;
+    position: relative;
   }
 
-  /* ============================================================
-     BOUTON FLASH PRINCIPAL
-     ============================================================ */
+  .version-selector-label {
+    font-size: 0.85em;
+    color: #7080a0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .version-selector {
+    background: rgba(20, 25, 50, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 200, 255, 0.3);
+    border-radius: 16px;
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    user-select: none;
+  }
+  .version-selector:hover {
+    border-color: rgba(0, 200, 255, 0.6);
+    box-shadow: 0 8px 30px rgba(0, 200, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  .version-selector.open {
+    border-color: rgba(0, 200, 255, 0.8);
+    box-shadow: 0 8px 40px rgba(0, 200, 255, 0.3);
+  }
+
+  .version-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+  .version-name {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .version-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .version-badge.latest {
+    background: linear-gradient(135deg, #00d4ff, #00a0dc);
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.6);
+    animation: badgePulse 2s ease-in-out infinite;
+  }
+  @keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(0, 200, 255, 0.6); }
+    50% { box-shadow: 0 0 25px rgba(0, 200, 255, 0.9); }
+  }
+  .version-meta { font-size: 0.8em; color: #8090b0; }
+
+  .version-chevron {
+    font-size: 1.4em;
+    color: #00d4ff;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+  .version-selector.open .version-chevron { transform: rotate(180deg); }
+
+  .version-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0; right: 0;
+    background: rgba(20, 25, 50, 0.98);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 2px solid rgba(0, 200, 255, 0.4);
+    border-radius: 16px;
+    padding: 8px;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 80px rgba(0,200,255,0.15);
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .version-dropdown.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+  }
+
+  .version-option {
+    padding: 14px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid transparent;
+  }
+  .version-option:hover {
+    background: rgba(0, 200, 255, 0.1);
+    border-color: rgba(0, 200, 255, 0.3);
+  }
+  .version-option.selected {
+    background: rgba(0, 200, 255, 0.15);
+    border-color: rgba(0, 200, 255, 0.5);
+  }
+  .version-option-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00a0dc, #0066aa);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2em; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .version-option-content { flex: 1; min-width: 0; }
+  .version-option-name {
+    font-weight: 700; font-size: 1em;
+    color: white;
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 3px;
+  }
+  .version-option-meta {
+    font-size: 0.8em; color: #8090b0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .version-option-check {
+    color: #00d4ff; font-size: 1.2em;
+    opacity: 0; flex-shrink: 0;
+  }
+  .version-option.selected .version-option-check { opacity: 1; }
+
   esp-web-install-button {
     --esp-tools-button-color: #00a0dc;
     --esp-tools-button-text-color: white;
     --esp-tools-button-border-radius: 16px;
     --esp-tools-button-font-size: 1.2em;
     --esp-tools-button-padding: 18px 40px;
-    --esp-tools-button-box-shadow: 0 8px 30px rgba(0, 160, 220, 0.5);
     margin: 20px 0;
   }
-
   esp-web-install-button::part(button) {
     background: linear-gradient(135deg, #00a0dc, #0066aa);
     background-size: 200% 200%;
@@ -230,78 +297,38 @@
     letter-spacing: 1px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(0, 160, 220, 0.5);
   }
-
   esp-web-install-button::part(button):hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 40px rgba(0, 200, 255, 0.7);
   }
-
   @keyframes btnShine {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
   }
 
-  /* ============================================================
-     CARTES D'INFORMATION
-     ============================================================ */
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 16px;
-    max-width: 800px;
-    width: 100%;
-    margin-top: 30px;
-  }
-
-  .info-card {
-    background: rgba(255, 255, 255, 0.05);
+  .version-details {
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
-    padding: 20px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    padding: 18px 22px;
+    max-width: 500px;
+    width: 100%;
+    margin-top: 20px;
   }
-
-  .info-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg,
-      transparent, rgba(0, 200, 255, 0.1), transparent);
-    transition: left 0.5s ease;
-  }
-
-  .info-card:hover::before { left: 100%; }
-
-  .info-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0, 200, 255, 0.4);
-    box-shadow: 0 10px 40px rgba(0, 200, 255, 0.2);
-  }
-
-  .info-card h3 {
-    color: #00d4ff;
-    font-size: 1em;
-    margin-bottom: 8px;
+  .version-details-row {
     display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .info-card p {
-    color: #c0d0e0;
+    justify-content: space-between;
+    padding: 6px 0;
     font-size: 0.9em;
-    line-height: 1.5;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
+  .version-details-row:last-child { border-bottom: none; }
+  .version-details-label { color: #7080a0; }
+  .version-details-value { color: #00d4ff; font-weight: 600; }
 
-  /* ============================================================
-     AVERTISSEMENT
-     ============================================================ */
   .warning {
     background: rgba(255, 100, 50, 0.1);
     backdrop-filter: blur(10px);
@@ -309,82 +336,55 @@
     border-left: 4px solid #ff6432;
     border-radius: 12px;
     padding: 16px 20px;
-    max-width: 600px;
+    max-width: 500px;
     width: 100%;
     margin-top: 20px;
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #ffb090;
   }
+  .warning strong { color: #ff9060; display: block; margin-bottom: 8px; }
+  .warning ul { margin-left: 20px; margin-top: 6px; }
+  .warning li { margin: 4px 0; }
 
-  .warning strong {
-    color: #ff9060;
-    display: block;
-    margin-bottom: 8px;
-    font-size: 1em;
+  footer {
+    margin-top: 40px;
+    color: #6070a0;
+    font-size: 0.85em;
+    text-align: center;
+    padding-bottom: 20px;
   }
+  footer a { color: #00a0dc; text-decoration: none; transition: color 0.3s; }
+  footer a:hover { color: #00d4ff; }
 
-  .warning ul {
-    margin-left: 20px;
-    margin-top: 6px;
-  }
-
-  .warning li {
-    margin: 4px 0;
-    line-height: 1.5;
-  }
-
-  /* ============================================================
-     FENÊTRE FLOTTANTE : PROGRESSION DU FLASH
-     ============================================================ */
   .float-window {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%) scale(0);
     background: rgba(20, 25, 50, 0.95);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 2px solid rgba(0, 200, 255, 0.4);
     border-radius: 20px;
     padding: 30px;
     z-index: 1000;
-    box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.8),
-      0 0 80px rgba(0, 200, 255, 0.4);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 80px rgba(0,200,255,0.4);
     max-width: 400px;
     width: 90%;
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     text-align: center;
   }
-
-  .float-window.visible {
-    transform: translate(-50%, -50%) scale(1);
-  }
-
+  .float-window.visible { transform: translate(-50%, -50%) scale(1); }
   .float-window .icon {
     font-size: 3em;
     margin-bottom: 15px;
     animation: bounce 1s ease infinite;
   }
-
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
   }
+  .float-window h2 { font-size: 1.3em; margin-bottom: 10px; color: #00d4ff; }
+  .float-window p { color: #a0b0d0; margin-bottom: 20px; font-size: 0.9em; }
 
-  .float-window h2 {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    color: #00d4ff;
-  }
-
-  .float-window p {
-    color: #a0b0d0;
-    margin-bottom: 20px;
-    font-size: 0.95em;
-  }
-
-  /* Barre de progression */
   .progress-bar {
     width: 100%;
     height: 8px;
@@ -393,7 +393,6 @@
     overflow: hidden;
     margin-bottom: 15px;
   }
-
   .progress-fill {
     height: 100%;
     background: linear-gradient(90deg, #00a0dc, #00d4ff, #a066ff);
@@ -404,11 +403,7 @@
     animation: progressShine 2s linear infinite;
     box-shadow: 0 0 15px rgba(0, 200, 255, 0.8);
   }
-
-  @keyframes progressShine {
-    to { background-position: 200% center; }
-  }
-
+  @keyframes progressShine { to { background-position: 200% center; } }
   .progress-text {
     font-size: 1.2em;
     font-weight: 700;
@@ -416,7 +411,6 @@
     font-family: 'Courier New', monospace;
   }
 
-  /* Overlay */
   .overlay {
     position: fixed;
     inset: 0;
@@ -427,19 +421,11 @@
     pointer-events: none;
     transition: opacity 0.4s ease;
   }
+  .overlay.visible { opacity: 1; pointer-events: all; }
 
-  .overlay.visible {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  /* ============================================================
-     FENÊTRE FLOTTANTE : NOTIFICATIONS
-     ============================================================ */
   .toast {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 20px; right: 20px;
     background: rgba(20, 25, 50, 0.95);
     backdrop-filter: blur(20px);
     border: 2px solid rgba(0, 200, 255, 0.4);
@@ -451,62 +437,24 @@
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     max-width: 320px;
   }
-
   .toast.visible { transform: translateX(0); }
+  .toast h4 { color: #00d4ff; margin-bottom: 5px; font-size: 0.9em; }
+  .toast p { color: #c0d0e0; font-size: 0.85em; line-height: 1.4; }
 
-  .toast h4 {
-    color: #00d4ff;
-    margin-bottom: 5px;
-    font-size: 0.95em;
-  }
-
-  .toast p {
-    color: #c0d0e0;
-    font-size: 0.85em;
-    line-height: 1.4;
-  }
-
-  /* ============================================================
-     FOOTER
-     ============================================================ */
-  footer {
-    margin-top: 40px;
-    color: #6070a0;
-    font-size: 0.85em;
-    text-align: center;
-    padding-bottom: 20px;
-  }
-
-  footer a {
-    color: #00a0dc;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  footer a:hover { color: #00d4ff; }
-
-  /* ============================================================
-     RESPONSIVE
-     ============================================================ */
   @media (max-width: 600px) {
     h1 { font-size: 2em; }
     .logo { width: 100px; height: 100px; font-size: 55px; }
-    .subtitle { font-size: 0.95em; }
+    .subtitle { font-size: 0.9em; }
   }
 </style>
 </head>
 <body>
 
-<!-- Fond animé -->
 <div class="bg-gradient"></div>
-
-<!-- Particules -->
 <div class="particles" id="particles"></div>
 
-<!-- Conteneur principal -->
 <div class="container">
 
-  <!-- Logo avec anneaux -->
   <div class="logo-wrapper">
     <div class="ring"></div>
     <div class="ring"></div>
@@ -515,63 +463,66 @@
     <div class="logo">C</div>
   </div>
 
-  <!-- Titre -->
-  <h1>CheapyOS <span class="version-badge">V4</span></h1>
+  <h1>CheapyOS WebFlasher</h1>
   <p class="subtitle">⚡ Installation directe par navigateur ⚡</p>
 
-  <!-- Bouton de flash -->
+  <div class="version-selector-wrapper">
+    <div class="version-selector-label">Choisir une version</div>
+    <div class="version-selector" id="versionSelector">
+      <div class="version-info" id="versionInfo"></div>
+      <div class="version-chevron">▼</div>
+    </div>
+    <div class="version-dropdown" id="versionDropdown"></div>
+  </div>
+
   <script type="module"
     src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module">
   </script>
-  <esp-web-install-button id="flashBtn" manifest="manifest.json"></esp-web-install-button>
+  <esp-web-install-button id="flashBtn"></esp-web-install-button>
 
-  <!-- Avertissement -->
+  <div class="version-details" id="versionDetails">
+    <div class="version-details-row">
+      <span class="version-details-label">Version</span>
+      <span class="version-details-value" id="detailVersion">-</span>
+    </div>
+    <div class="version-details-row">
+      <span class="version-details-label">Date</span>
+      <span class="version-details-value" id="detailDate">-</span>
+    </div>
+    <div class="version-details-row">
+      <span class="version-details-label">Taille</span>
+      <span class="version-details-value" id="detailSize">-</span>
+    </div>
+    <div class="version-details-row">
+      <span class="version-details-label">Nouveautés</span>
+      <span class="version-details-value" id="detailHighlights"
+            style="font-weight: 400; font-size: 0.9em; text-align: right; max-width: 60%;">-</span>
+    </div>
+  </div>
+
   <div class="warning">
     <strong>⚠️ Avant de commencer</strong>
     <ul>
-      <li>Navigateur <b>Chrome, Edge ou Opera</b> (Firefox non supporté)</li>
+      <li>Navigateur <b>Chrome, Edge ou Opera</b></li>
       <li>Câble USB <b>data</b> (pas juste charge)</li>
       <li>Carte <b>ESP32-2432W328R (CYD)</b> connectée</li>
       <li>Fermez <b>Arduino IDE</b> et le Moniteur Série</li>
     </ul>
   </div>
 
-  <!-- Cartes info -->
-  <div class="info-grid">
-    <div class="info-card">
-      <h3>🎯 Carte compatible</h3>
-      <p>ESP32-2432W328R (Cheap Yellow Display) — la carte la plus populaire pour makers.</p>
-    </div>
-    <div class="info-card">
-      <h3>⏱️ Durée</h3>
-      <p>Environ 1 à 2 minutes selon votre port USB. Ne débranchez pas pendant le flash !</p>
-    </div>
-    <div class="info-card">
-      <h3>📦 Contenu</h3>
-      <p>Bootloader, partitions et firmware complet de CheapyOS V4 avec 20 applications.</p>
-    </div>
-    <div class="info-card">
-      <h3>🔧 Après le flash</h3>
-      <p>L'écran redémarrera automatiquement sur le Welcome Screen. Configurez votre OS !</p>
-    </div>
-  </div>
-
-  <!-- Footer -->
   <footer>
     <p>© 2025 CheapyOS — Made with ❤️ by <a href="https://github.com/KornoxOff" target="_blank">KornoxOff</a></p>
     <p style="margin-top: 8px;">
       <a href="https://github.com/KornoxOff/CheapyOS-V4" target="_blank">📦 GitHub</a> ·
-      <a href="https://github.com/KornoxOff/CheapyOS-V4/issues" target="_blank">🐛 Bug report</a> ·
-      <a href="https://github.com/KornoxOff/CheapyOS-V4/releases" target="_blank">🚀 Releases</a>
+      <a href="https://github.com/KornoxOff/CheapyOS-V4/releases" target="_blank">🚀 Releases</a> ·
+      <a href="https://github.com/KornoxOff/CheapyOS-V4/issues" target="_blank">🐛 Issues</a>
     </p>
   </footer>
 
 </div>
 
-<!-- Overlay -->
 <div class="overlay" id="overlay"></div>
 
-<!-- Fenêtre flottante : progression -->
 <div class="float-window" id="progressWindow">
   <div class="icon">⚡</div>
   <h2 id="progressTitle">Flash en cours</h2>
@@ -582,60 +533,231 @@
   <div class="progress-text" id="progressText">0%</div>
 </div>
 
-<!-- Toast notification -->
 <div class="toast" id="toast">
   <h4 id="toastTitle">Notification</h4>
   <p id="toastMsg">Message</p>
 </div>
 
-<!-- Script principal -->
 <script>
   // ============================================================
-  // GÉNÉRATION DES PARTICULES
+  // ⚙️ CONFIGURATION — MODIFIE JUSTE ICI POUR AJOUTER UNE VERSION
+  // ============================================================
+  const GITHUB_USER = 'KornoxOff';
+  const GITHUB_REPO = 'CheapyOS-V4';
+
+  // URL de base de ton GitHub Pages
+  const BASE_URL = `https://${GITHUB_USER.toLowerCase()}.github.io/CheapyOS-Flasher/`;
+
+  // 📋 LISTE DES VERSIONS — Ajoute une entrée à chaque nouvelle release
+  const VERSIONS = [
+    {
+      id: "v5.0",
+      name: "CheapyOS V5",
+      tag: "v5.0",
+      date: "2025-09-20",
+      size: "4 MB",
+      highlights: "Code PIN, animations, NTP, icones premium",
+      firmware: "firmware/cheapyos-v5.0.bin"
+    },
+    {
+      id: "v4.0",
+      name: "CheapyOS V4",
+      tag: "v4.0",
+      date: "2025-09-15",
+      size: "4 MB",
+      highlights: "Premiere release, 20 apps, launcher",
+      firmware: "firmware/cheapyos-v4.0.bin"
+    }
+  ];
+  // ============================================================
+
+  // ============================================================
+  // PARTICULES
   // ============================================================
   function createParticles() {
-    const container = document.getElementById('particles');
-    const particleCount = 30;
-
-    for (let i = 0; i < particleCount; i++) {
+    const c = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
       const p = document.createElement('div');
       p.className = 'particle';
-
-      // Position horizontale aléatoire
       p.style.left = Math.random() * 100 + '%';
-
-      // Taille aléatoire
       const size = Math.random() * 3 + 2;
       p.style.width = size + 'px';
       p.style.height = size + 'px';
-
-      // Durée aléatoire
-      const duration = Math.random() * 15 + 10;
-      p.style.animationDuration = duration + 's';
-
-      // Délai aléatoire
+      p.style.animationDuration = (Math.random() * 15 + 10) + 's';
       p.style.animationDelay = Math.random() * 10 + 's';
-
-      // Couleur aléatoire
       const colors = [
-        'rgba(0, 200, 255, 0.6)',
-        'rgba(160, 100, 255, 0.5)',
-        'rgba(0, 255, 200, 0.4)',
-        'rgba(255, 100, 200, 0.4)'
+        'rgba(0,200,255,0.6)',
+        'rgba(160,100,255,0.5)',
+        'rgba(0,255,200,0.4)',
+        'rgba(255,100,200,0.4)'
       ];
       p.style.background = colors[Math.floor(Math.random() * colors.length)];
       p.style.boxShadow = `0 0 10px ${p.style.background}`;
-
-      container.appendChild(p);
+      c.appendChild(p);
     }
   }
-
   createParticles();
 
   // ============================================================
-  // GESTION DU BOUTON DE FLASH
+  // ÉTAT
   // ============================================================
-  const flashBtn = document.getElementById('flashBtn');
+  let selectedVersion = null;
+  let manifestBlobUrl = null;
+
+  // ============================================================
+  // DÉTECTION DE LA DERNIÈRE VERSION (via GitHub API)
+  // ============================================================
+  async function detectLatest() {
+    try {
+      const r = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/releases`);
+      if (!r.ok) throw new Error('API GitHub indisponible');
+      const releases = await r.json();
+      if (releases.length === 0) throw new Error('Aucune release');
+
+      const latestTag = releases[0].tag_name;
+      VERSIONS.forEach(v => { v.latest = (v.tag === latestTag); });
+
+      // Trier : latest en premier, puis par date décroissante
+      VERSIONS.sort((a, b) => {
+        if (a.latest && !b.latest) return -1;
+        if (!a.latest && b.latest) return 1;
+        return new Date(b.date) - new Date(a.date);
+      });
+    } catch (e) {
+      console.warn('Fallback: première version marquée latest');
+      VERSIONS[0].latest = true;
+    }
+  }
+
+  // ============================================================
+  // GÉNÉRATION DU MANIFEST DYNAMIQUEMENT (Blob)
+  // ============================================================
+  function generateManifest(version) {
+    const manifest = {
+      name: version.name,
+      version: version.id.replace('v', ''),
+      new_install_prompt_erase: true,
+      builds: [
+        {
+          chipFamily: "ESP32",
+          improv: false,
+          parts: [
+            {
+              path: BASE_URL + version.firmware,
+              offset: 0
+            }
+          ]
+        }
+      ]
+    };
+
+    // Libérer l'ancien blob
+    if (manifestBlobUrl) URL.revokeObjectURL(manifestBlobUrl);
+
+    // Créer un nouveau Blob
+    const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+    manifestBlobUrl = URL.createObjectURL(blob);
+    return manifestBlobUrl;
+  }
+
+  // ============================================================
+  // RENDU DU SÉLECTEUR
+  // ============================================================
+  function renderVersionSelector() {
+    const info = document.getElementById('versionInfo');
+    const dropdown = document.getElementById('versionDropdown');
+
+    if (!selectedVersion) return;
+
+    // Info dans le sélecteur
+    info.innerHTML = `
+      <div class="version-name">
+        <span>${selectedVersion.name}</span>
+        ${selectedVersion.latest ? '<span class="version-badge latest">LATEST</span>' : ''}
+      </div>
+      <div class="version-meta">${formatDate(selectedVersion.date)} · ${selectedVersion.size}</div>
+    `;
+
+    // Options du dropdown
+    dropdown.innerHTML = VERSIONS.map(v => `
+      <div class="version-option ${v.id === selectedVersion.id ? 'selected' : ''}" data-id="${v.id}">
+        <div class="version-option-icon">${v.id.replace('v', '').split('.')[0]}</div>
+        <div class="version-option-content">
+          <div class="version-option-name">
+            ${v.name}
+            ${v.latest ? '<span class="version-badge latest" style="font-size:0.6em;">LATEST</span>' : ''}
+          </div>
+          <div class="version-option-meta">${formatDate(v.date)} · ${v.size}</div>
+        </div>
+        <div class="version-option-check">✓</div>
+      </div>
+    `).join('');
+
+    // Events sur chaque option
+    dropdown.querySelectorAll('.version-option').forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = opt.dataset.id;
+        const v = VERSIONS.find(x => x.id === id);
+        if (v) {
+          selectedVersion = v;
+          renderVersionSelector();
+          updateFlashButton();
+          closeDropdown();
+          showToast('🔄 Version changée', `${v.name} sélectionnée`, 2000);
+        }
+      });
+    });
+
+    // Détails
+    document.getElementById('detailVersion').textContent = selectedVersion.id.replace('v', '');
+    document.getElementById('detailDate').textContent = formatDate(selectedVersion.date);
+    document.getElementById('detailSize').textContent = selectedVersion.size;
+    document.getElementById('detailHighlights').textContent = selectedVersion.highlights;
+  }
+
+  function formatDate(dateStr) {
+    const d = new Date(dateStr);
+    const months = ['Jan','Fev','Mar','Avr','Mai','Jun','Jul','Aou','Sep','Oct','Nov','Dec'];
+    return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  }
+
+  // ============================================================
+  // DROPDOWN OUVERTURE/FERMETURE
+  // ============================================================
+  const selectorEl = document.getElementById('versionSelector');
+  const dropdownEl = document.getElementById('versionDropdown');
+
+  function openDropdown() {
+    selectorEl.classList.add('open');
+    dropdownEl.classList.add('open');
+  }
+  function closeDropdown() {
+    selectorEl.classList.remove('open');
+    dropdownEl.classList.remove('open');
+  }
+
+  selectorEl.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdownEl.classList.contains('open') ? closeDropdown() : openDropdown();
+  });
+  document.addEventListener('click', () => closeDropdown());
+  dropdownEl.addEventListener('click', (e) => e.stopPropagation());
+
+  // ============================================================
+  // MISE À JOUR DU BOUTON DE FLASH
+  // ============================================================
+  function updateFlashButton() {
+    const btn = document.getElementById('flashBtn');
+    if (selectedVersion) {
+      const manifestUrl = generateManifest(selectedVersion);
+      btn.setAttribute('manifest', manifestUrl);
+    }
+  }
+
+  // ============================================================
+  // PROGRESSION DU FLASH
+  // ============================================================
   const progressWindow = document.getElementById('progressWindow');
   const overlay = document.getElementById('overlay');
   const progressFill = document.getElementById('progressFill');
@@ -643,7 +765,6 @@
   const progressTitle = document.getElementById('progressTitle');
   const progressMessage = document.getElementById('progressMessage');
 
-  // Afficher la fenêtre flottante
   function showProgressWindow(title, message) {
     progressTitle.textContent = title;
     progressMessage.textContent = message;
@@ -653,55 +774,34 @@
     overlay.classList.add('visible');
   }
 
-  // Cacher
   function hideProgressWindow() {
     progressWindow.classList.remove('visible');
     overlay.classList.remove('visible');
   }
 
-  // Mettre à jour la barre
   function updateProgress(percent, message) {
     progressFill.style.width = percent + '%';
     progressText.textContent = Math.round(percent) + '%';
     if (message) progressMessage.textContent = message;
   }
 
-  // Toast
   function showToast(title, msg, duration = 4000) {
     const toast = document.getElementById('toast');
     document.getElementById('toastTitle').textContent = title;
     document.getElementById('toastMsg').textContent = msg;
     toast.classList.add('visible');
-
     setTimeout(() => toast.classList.remove('visible'), duration);
   }
 
   // ============================================================
-  // ÉVÉNEMENTS ESP WEB TOOLS
+  // ÉVÉNEMENTS DU BOUTON
   // ============================================================
+  const flashBtn = document.getElementById('flashBtn');
+  let progressInterval = null;
 
-  // Avant l'installation
   flashBtn.addEventListener('click', () => {
     showToast('🔌 Connexion', 'Sélectionnez le port COM de votre CYD', 3000);
   });
-
-  // Événement de changement d'état (depuis esp-web-tools)
-  const observer = new MutationObserver((mutations) => {
-    // Détecter quand le bouton entre en mode "install"
-    const state = flashBtn.getAttribute('state');
-    if (state === 'INSTALLING' || state === 'PREPARING') {
-      showProgressWindow('Flash en cours', 'Connexion à la carte...');
-      showToast('⚡ Flash démarré', 'Ne débranchez pas la carte !', 5000);
-    }
-  });
-
-  observer.observe(flashBtn, {
-    attributes: true,
-    attributeFilter: ['state']
-  });
-
-  // Simulation de progression (car esp-web-tools ne donne pas de % précis)
-  let progressInterval = null;
 
   function simulateProgress() {
     let percent = 0;
@@ -709,17 +809,10 @@
       if (percent < 90) {
         percent += Math.random() * 3;
         updateProgress(percent);
-
-        // Messages contextuels
-        if (percent > 20 && percent < 40) {
-          progressMessage.textContent = 'Écriture du bootloader...';
-        } else if (percent > 40 && percent < 60) {
-          progressMessage.textContent = 'Écriture des partitions...';
-        } else if (percent > 60 && percent < 85) {
-          progressMessage.textContent = 'Écriture du firmware...';
-        } else if (percent > 85) {
-          progressMessage.textContent = 'Finalisation...';
-        }
+        if (percent > 20 && percent < 40) progressMessage.textContent = 'Écriture du bootloader...';
+        else if (percent > 40 && percent < 60) progressMessage.textContent = 'Écriture des partitions...';
+        else if (percent > 60 && percent < 85) progressMessage.textContent = 'Écriture du firmware...';
+        else if (percent > 85) progressMessage.textContent = 'Finalisation...';
       }
     }, 300);
   }
@@ -731,21 +824,19 @@
     }
   }
 
-  // Détecter la fin
   flashBtn.addEventListener('state-changed', (e) => {
     const state = e.detail?.state;
-    console.log('State changed:', state);
-
     if (state === 'INSTALLING') {
+      showProgressWindow('Flash en cours', `Installation de ${selectedVersion.name}...`);
+      showToast('⚡ Flash démarré', 'Ne débranchez pas la carte !', 5000);
       simulateProgress();
     } else if (state === 'FINISHED') {
       stopProgress();
       updateProgress(100, 'Flash terminé ! Redémarrage...');
-      showToast('✅ Succès', 'CheapyOS installé ! L\'écran redémarre.', 6000);
-
+      showToast('✅ Succès', `${selectedVersion.name} installé !`, 6000);
       setTimeout(() => {
         hideProgressWindow();
-        showToast('🎉 Terminé', 'Profitez de CheapyOS V4 !', 5000);
+        showToast('🎉 Terminé', 'Profitez de CheapyOS !', 5000);
       }, 2500);
     } else if (state === 'ERROR') {
       stopProgress();
@@ -755,41 +846,20 @@
   });
 
   // ============================================================
-  // ANIMATION DES ANNEAUX
+  // DÉMARRAGE
   // ============================================================
-  document.querySelectorAll('.ring').forEach((ring, i) => {
-    setInterval(() => {
-      ring.style.animation = 'none';
-      setTimeout(() => {
-        ring.style.animation = `ringPulse 2s ease-out infinite`;
-      }, 10);
-    }, 2000);
-  });
-
-  // ============================================================
-  // EFFET DE SUIVI DE SOURIS SUR LES CARTES
-  // ============================================================
-  document.querySelectorAll('.info-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.background = `radial-gradient(circle at ${x}% ${y}%,
-        rgba(0, 200, 255, 0.1), rgba(255, 255, 255, 0.05) 70%)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.background = 'rgba(255, 255, 255, 0.05)';
-    });
-  });
-
-  // ============================================================
-  // LOG DE DÉMARRAGE
-  // ============================================================
-  console.log('%c🚀 CheapyOS Web Flasher',
-    'color: #00d4ff; font-size: 20px; font-weight: bold;');
-  console.log('%cPrêt à flasher votre CYD !',
-    'color: #a0b0d0; font-size: 14px;');
+  (async () => {
+    await detectLatest();
+    if (VERSIONS.length > 0) {
+      selectedVersion = VERSIONS[0];
+      renderVersionSelector();
+      updateFlashButton();
+    }
+    console.log('%c🚀 CheapyOS Web Flasher',
+      'color: #00d4ff; font-size: 20px; font-weight: bold;');
+    console.log(`%c${VERSIONS.length} versions chargées`,
+      'color: #a0b0d0; font-size: 14px;');
+  })();
 </script>
 
 </body>
